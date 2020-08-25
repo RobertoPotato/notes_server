@@ -2,18 +2,13 @@ const express = require("express");
 const { Profile } = require("../models/index");
 const router = express.Router();
 
-//username
-//avatar
-//profilePicture
-//bio
-//userId
-
+//! Test route, to be removed
 router.get("/", async (req, res) => {
   const profiles = await Profile.findAll();
   res.send(profiles);
 });
 
-//create a profile
+//create profile
 router.post("/", async (req, res) => {
   const profile = await Profile.create({
     username: req.body.username,
@@ -25,7 +20,7 @@ router.post("/", async (req, res) => {
   res.send(profile);
 });
 
-//modify my profile
+//modify profile
 router.put("/:id", async (req, res) => {
   const updatedProfile = await Profile.update(
     {
@@ -44,7 +39,7 @@ router.put("/:id", async (req, res) => {
   res.send(updatedProfile);
 });
 
-//get my profile
+//get profile
 router.get("/:userid", async (req, res) => {
   const profiles = await Profile.findOne({
     where: { userId: req.params.userid },
@@ -56,6 +51,6 @@ router.get("/:userid", async (req, res) => {
   res.send(profiles);
 });
 
-//TODO delete my profile
+//TODO delete profile
 
 module.exports = router;

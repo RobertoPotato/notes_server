@@ -1,13 +1,6 @@
-//delete one of my notes
-
 const express = require("express");
 const { Note, User } = require("../models/index");
 const router = express.Router();
-
-//title
-//content
-//imageUrl
-//userId
 
 //create my note
 router.post("/", async (req, res) => {
@@ -66,6 +59,7 @@ router.delete("/:id", async (req, res) => {
   }).then(res.status(200).send(note));
 });
 
+//TODO Delete this route
 router.get('/', async (req, res) => {
     const notes = await Note.findAll();
 

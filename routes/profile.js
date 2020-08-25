@@ -2,7 +2,7 @@ const express = require("express");
 const { Profile } = require("../models/index");
 const router = express.Router();
 
-//! Test route, to be removed
+//TODO Test route, to be removed
 router.get("/", async (req, res) => {
   const profiles = await Profile.findAll();
   res.send(profiles);
